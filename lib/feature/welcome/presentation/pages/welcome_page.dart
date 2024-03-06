@@ -10,12 +10,23 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Coloors.backgroundDark,
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
         child: Column(
           children: [
             const SizedBox(height: 30),
-            Expanded(child: Image.asset('assets/images/welcome_logo.png')),
+            Expanded(
+                child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Image.asset(
+                'assets/images/whatsapp_1.png',
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width - 100,
+                height: MediaQuery.of(context).size.width - 100,
+                // color: const Color(0xFF00A884),
+              ),
+            )),
             Expanded(
               child: SizedBox(
                 // color: Colors.red,

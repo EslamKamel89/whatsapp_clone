@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsapp/feature/welcome/presentation/pages/welcome_page.dart';
+import 'package:whatsapp/common/theme/dark_theme.dart';
+import 'package:whatsapp/common/theme/light_theme.dart';
+import 'package:whatsapp/feature/login/presentation/pages/login_page.dart';
 
 import 'firebase_options.dart';
 
@@ -21,11 +23,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Whats app',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const WelcomePage(),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
+      themeMode: ThemeMode.system,
+      // home: const WelcomePage(),
+      home: const LoginPage(),
     );
   }
 }
