@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/common/theme/dark_theme.dart';
 import 'package:whatsapp/common/theme/light_theme.dart';
-import 'package:whatsapp/feature/login/presentation/pages/login_page.dart';
+import 'package:whatsapp/feature/auth/user_info/presentation/user_info/user_info.dart';
 
 import 'firebase_options.dart';
 
@@ -31,7 +31,9 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme(),
       themeMode: ThemeMode.system,
       // home: const WelcomePage(),
-      home: const LoginPage(),
+      // home: const LoginPage(),
+      // home: const VerificationPage(),
+      home: const UserInfo(),
     );
   }
 }
