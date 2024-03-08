@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/common/theme/isdark.dart';
 import 'package:whatsapp/common/utils/coloor.dart';
-import 'package:whatsapp/common/widgets/custom_icon_button.dart';
-import 'package:whatsapp/feature/auth/login/presentation/common_widgets/custom_text_field.dart';
+import 'package:whatsapp/feature/auth/login/presentation/pages/verification_page/widgets/call_me.dart';
+import 'package:whatsapp/feature/auth/login/presentation/pages/verification_page/widgets/otp_text_field.dart';
+import 'package:whatsapp/feature/auth/login/presentation/pages/verification_page/widgets/resend_sms.dart';
+import 'package:whatsapp/feature/auth/login/presentation/pages/verification_page/widgets/verification_appbar.dart';
+import 'package:whatsapp/feature/auth/login/presentation/pages/verification_page/widgets/verification_text.dart';
 
 class VerificationPage extends StatefulWidget {
-  const VerificationPage({super.key});
-
+  const VerificationPage({
+    super.key,
+    required this.verificationId,
+    required this.phoneNumber,
+  });
+  final String verificationId;
+  final String phoneNumber;
   @override
   State<VerificationPage> createState() => _VerificationPageState();
 }
 
 class _VerificationPageState extends State<VerificationPage> {
   late TextEditingController codeController;
+
   @override
   void initState() {
     codeController = TextEditingController();
@@ -40,61 +49,20 @@ class _VerificationPageState extends State<VerificationPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text: "You've tried to register +0201024510803 before requesting an SMS or call with your code, ",
-                  style: TextStyle(color: grey),
-                  children: [
-                    TextSpan(
-                      text: '\nWrong Number?',
-                      style: TextStyle(color: blue),
-                    )
-                  ],
-                ),
-              ),
+              const VerificationText(),
               const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: CustomTextField(
-                  controller: codeController,
-                  hintText: " _ _ _  _ _ _",
-                  fontSize: 30,
-                  autoFocus: true,
-                  keyboardType: TextInputType.number,
-                  onChanged: (value) {},
-                  maxLength: 6,
-                ),
-              ),
+              OtpTextField(codeController: codeController),
               const SizedBox(height: 20),
               Text(
                 'Enter 6-digit code',
                 style: TextStyle(color: grey),
               ),
               const SizedBox(height: 20),
-              Row(
-                children: [
-                  Icon(Icons.message, color: grey),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Resend SMS',
-                    style: TextStyle(color: grey),
-                  ),
-                ],
-              ),
+              const ResendSms(),
               const SizedBox(height: 10),
               Divider(color: blue.withOpacity(0.2)),
               const SizedBox(height: 20),
-              Row(
-                children: [
-                  Icon(Icons.phone, color: grey),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Call Me',
-                    style: TextStyle(color: grey),
-                  ),
-                ],
-              ),
+              const CallMe(),
               const SizedBox(height: 10),
               Divider(color: blue.withOpacity(0.2)),
             ],
@@ -103,29 +71,4 @@ class _VerificationPageState extends State<VerificationPage> {
       ),
     );
   }
-}
-
-AppBar verificationAppBar({
-  required BuildContext context,
-  required void Function()? onTap,
-}) {
-  bool isDark = isDarkMode(context);
-  return AppBar(
-    title: Text(
-      'Verify your Number',
-      style: TextStyle(
-        color: !isDark ? Coloors.greenLight : null,
-        fontSize: 17,
-      ),
-    ),
-    centerTitle: true,
-    elevation: 0,
-    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-    actions: [
-      CustomIconButton(
-        icon: Icons.more_vert,
-        onPressed: onTap,
-      ),
-    ],
-  );
 }

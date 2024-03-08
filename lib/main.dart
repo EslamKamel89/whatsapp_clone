@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp/common/router/router.dart';
 import 'package:whatsapp/common/theme/dark_theme.dart';
 import 'package:whatsapp/common/theme/light_theme.dart';
-import 'package:whatsapp/feature/auth/user_info/presentation/user_info/user_info.dart';
 
 import 'firebase_options.dart';
 
@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
       // home: const WelcomePage(),
       // home: const LoginPage(),
       // home: const VerificationPage(),
-      home: const UserInfo(),
+      // home: const UserInfoPage(),
+      onGenerateRoute: Routes.onGenerateRoute,
+      initialRoute: Routes.welcome,
     );
   }
 }

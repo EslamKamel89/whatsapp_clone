@@ -30,6 +30,7 @@ environment:
 dependencies:
   bloc_concurrency: ^0.2.4
   cloud_firestore: ^4.15.4
+  country_picker: ^2.0.25
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   device_preview: ^1.1.0
@@ -43,6 +44,7 @@ dependencies:
   flutter_bloc: ^8.1.4
   flutter_local_notifications: ^16.3.2
   flutter_native_splash: 2.3.10
+  flutter_riverpod: ^2.4.10
   flutter_screenutil: ^5.9.0
   get_it: ^7.6.7
   google_sign_in: ^6.2.1
@@ -54,28 +56,21 @@ dependencies:
   responsive_framework: ^1.1.1
   shared_preferences: ^2.2.2
   sqflite: ^2.3.2
-  country_picker: ^2.0.25
-  
+
 flutter_native_splash:
-  color: "#FFFFFF"  
+  color: "#FFFFFF"
   color_dark: "#111B21"
-  image: assets/images/splash_light.png 
+  image: assets/images/splash_light.png
   image_dark: assets/images/splash_dark.png
   android_12:
-    color: "#FFFFFF"  
+    color: "#FFFFFF"
     color_dark: "#111B21"
-    image: assets/images/splash_light.png 
+    image: assets/images/splash_light.png
     image_dark: assets/images/splash_dark.png
     icon_background_color: "#FFFFFF"
     icon_background_color_dark: "111B21"
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
