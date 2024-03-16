@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp/common/theme/isdark.dart';
 import 'package:whatsapp/common/widgets/custom_elevated_button.dart';
 import 'package:whatsapp/feature/auth/login/presentation/pages/login_page/widgets/charges_may_apply.dart';
@@ -9,14 +10,14 @@ import 'package:whatsapp/feature/auth/login/presentation/pages/login_page/widget
 import 'package:whatsapp/feature/auth/login/presentation/pages/login_page/widgets/send_code_to_phone.dart';
 import 'package:whatsapp/feature/auth/login/presentation/pages/login_page/widgets/verify_text.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   late TextEditingController countryNameController;
   late TextEditingController countryCodeController;
   late TextEditingController phoneNumberController;
@@ -84,6 +85,8 @@ class _LoginPageState extends State<LoginPage> {
             context: context,
             countryNameController: countryNameController,
             phoneNumberController: phoneNumberController,
+            countryCodeController: countryCodeController,
+            ref: ref,
           );
         },
       ),

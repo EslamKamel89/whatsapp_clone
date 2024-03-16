@@ -18,7 +18,7 @@ class Routes {
       case verification:
         return MaterialPageRoute(
           builder: (context) => VerificationPage(
-            verificationId: args['verificationId'],
+            smsCodeId: args['smsCodeId'],
             phoneNumber: args['phoneNumber'],
           ),
         );

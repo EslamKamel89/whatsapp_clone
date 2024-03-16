@@ -27,7 +27,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
           child: Column(
             children: [
               Text(
-                'Please provide your name and optional profile phote',
+                'Please provide your name and optional profile photo',
                 style: TextStyle(color: grey),
               ),
               const SizedBox(height: 40),
